@@ -1,7 +1,26 @@
 doctype 5
 html
   head
-    title= title
+    title= title + ' | ' + appname
+
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
   body
-    block content
+    .container
+      .navbar.navbar-default
+        .container
+          .navbar-header
+            a.navbar-brand(href='/')= appname
+      .alert.alert-dismissable
+
+      h1= title
+
+      p Welcome to Express.js Todo app by&nbsp;
+        a(href='http://twitter.com/azat_co') @azat_co
+        |. Please enjoy.
+
+      block content
+
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/main.js')
