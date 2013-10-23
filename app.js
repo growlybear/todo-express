@@ -43,14 +43,15 @@ app.use(require('less-middleware')({
     src: __dirname + '/public',
     compress: true
 }));
-
-// router plugin MUST come after csrf() and less-middleware
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(function (req, res, next) {
     res.locals._csrf = req.session._csrf;
     return next();
 });
+
+// router plugin MUST come after csrf() and less-middleware
+app.use(app.router);
 
 // development only
 if ('development' == app.get('env')) {

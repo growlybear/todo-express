@@ -25,7 +25,7 @@ block content
         div.name
           input(type="text", name="name", placeholder='Add a new task')
         div.delete
-          input.btn.btn-primary.btn-sm(type="submit", value='add')
+          input.btn.btn-primary.btn-xs(type="submit", value='add')
     if (tasks.length === 0)
       | No tasks.
     each task, index in tasks
