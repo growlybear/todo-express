@@ -5,7 +5,7 @@
 
 var express = require('express');
 var routes = require('./routes');
-var tasks = require('./routes.tasks');
+var tasks = require('./routes/tasks');
 var http = require('http');
 var path = require('path');
 
@@ -70,7 +70,7 @@ app.param('task_id', function (req, res, next, taskId) {
 
 // route definitions
 app.get('/', routes.index);
-app.get('/tasks', task.list);
+app.get('/tasks', tasks.list);
 app.post('/tasks', tasks.markAllCompleted);
 app.post('/tasks', tasks.add);
 app.post('/tasks/:task_id', tasks.markCompleted);
